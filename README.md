@@ -1,7 +1,7 @@
 # Project Name
 
 > Project description
-QUESARITO BOI
+QUESARITO BOI :o)
 ## Related Projects
 
   - https://github.com/teamName/repo
