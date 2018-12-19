@@ -1,7 +1,7 @@
 # Project Name
 
 > Project description
-
+QUESARITO BOI
 ## Related Projects
 
   - https://github.com/teamName/repo
@@ -36,4 +36,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
