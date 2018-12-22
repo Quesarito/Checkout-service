@@ -1,19 +1,6 @@
 const mysql = require('mysql');
 const faker = require('faker');
 
-let username = '';
-let userAddress = '';
-let userCity = '';
-let userZip = '';
-let userState = '';
-let userPrime = '';
-let userlistName = '';
-let itemName = '';
-let itemDesc = '';
-let itemPriceNew = '';
-let itemPriceUsed = '';
-let itemStock = 0;
-
 const mySqlConnection = mysql.createConnection({
   // host: 'localhost',
   user: 'root',
@@ -30,18 +17,18 @@ mySqlConnection.connect((error) => {
 
 let populator = function () {
   for (let i = 0; i < 100; i++) {
-    username = faker.name.findName();
-    userAddress = faker.address.streetAddress();
-    userCity = faker.address.city();
-    userZip = faker.address.zipCode();
-    userState = faker.address.state();
-    userPrime = faker.random.boolean();
-    userlistName = faker.random.word();
-    itemName = faker.commerce.productName();
-    itemDesc = faker.lorem.sentence();
-    itemPriceNew = faker.commerce.price();
-    itemPriceUsed = faker.commerce.price();
-    itemStock = faker.random.number();
+    let username = faker.name.findName();
+    let userAddress = faker.address.streetAddress();
+    let userCity = faker.address.city();
+    let userZip = faker.address.zipCode();
+    let userState = faker.address.state();
+    let userPrime = faker.random.boolean();
+    let userlistName = faker.random.word();
+    let itemName = faker.commerce.productName();
+    let itemDesc = faker.lorem.sentence();
+    let itemPriceNew = faker.commerce.price();
+    let itemPriceUsed = faker.commerce.price();
+    let itemStock = faker.random.number();
 
     let sqlUsers = `INSERT INTO users (name,address,city,zipcode,state,prime) VALUES ('${username}','${userAddress}','${userCity}','${userZip}','${userState}','${userPrime}');`;
 
