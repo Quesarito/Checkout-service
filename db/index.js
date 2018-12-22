@@ -12,7 +12,7 @@ let itemName = '';
 let itemDesc = '';
 let itemPriceNew = '';
 let itemPriceUsed = '';
-let itemStock = '';
+let itemStock = 0;
 
 const mySqlConnection = mysql.createConnection({
   // host: 'localhost',
@@ -22,13 +22,14 @@ const mySqlConnection = mysql.createConnection({
 
 mySqlConnection.connect((error) => {
   if (error) {
-    throw Error;
+    throw error;
   }
   console.log('connected to db');
 });
 
-const populator = function () {
-  for (let i = 0; i < 100; i + 1) {
+
+let populator = function () {
+  for (let i = 0; i < 100; i++) {
     username = faker.name.findName();
     userAddress = faker.address.streetAddress();
     userCity = faker.address.city();
@@ -42,26 +43,29 @@ const populator = function () {
     itemPriceUsed = faker.commerce.price();
     itemStock = faker.random.number();
 
-    let sqlUsers = `INSERT INTO users (name,address,city,zipcode,state,prime) VALUES ('${username}',
-      '${userAddress}','${userCity}','${userZip}','${userState}','${userPrime}');`;
+    let sqlUsers = `INSERT INTO users (name,address,city,zipcode,state,prime) VALUES ('${username}','${userAddress}','${userCity}','${userZip}','${userState}','${userPrime}');`;
 
     let sqlLists = `INSERT INTO lists (list_name)VALUES ('${userlistName}');`;
 
-    let sqlItems = `INSERT INTO items (name,description,price_new, price_used,stock_count) VALUES (
-      '${itemName}','${itemDesc}','${itemPriceNew}','${itemPriceUsed}','${itemStock}');`;
+    let sqlItems = `INSERT INTO items (name,description,price_new, price_used,stock_count) VALUES ('${itemName}','${itemDesc}','${itemPriceNew}','${itemPriceUsed}','${itemStock}');`;
+
 
     // insert user data
-    mySqlConnection.query(sqlUsers, (err) => {
-      if (err) {
-        throw err;
-      }
-    });
+    if (i < 1) {
+      mySqlConnection.query(sqlUsers, (err) => {
+        if (err) {
+          throw err;
+        }
+      });
+    }
     // insert list data
-    mySqlConnection.query(sqlLists, (err) => {
-      if (err) {
-        throw err;
-      }
-    });
+    if (i < 3) {
+      mySqlConnection.query(sqlLists, (err) => {
+        if (err) {
+          throw err;
+        }
+      });
+    }
     // insert item data
     mySqlConnection.query(sqlItems, (err) => {
       if (err) {
