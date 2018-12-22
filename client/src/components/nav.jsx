@@ -13,7 +13,7 @@ class Nav extends React.Component {
       <header>
         <h1 className="nav">Amazon?</h1>
         <h1>
-          <button class="openbtn"> ☰ </button>
+          <button className="openbtn"> ☰ </button>
         </h1>
       </header>
     );
