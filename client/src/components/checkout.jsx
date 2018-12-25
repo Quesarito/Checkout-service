@@ -7,8 +7,9 @@ class Checkout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      data: {},
       cart: 0,
-    };
+    }; 
   }
 
   componentDidMount() {
@@ -19,7 +20,11 @@ class Checkout extends React.Component {
     axios.post('/carts', { userid: 1, itemid: 10 }).then((response) => {
       console.log('bingo');
     });
-}
+
+    axios.get('/users').then((response) => {
+      this.setState({data: response.data });
+    });
+  }
 
   render() {
     return (

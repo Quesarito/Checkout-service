@@ -6,7 +6,7 @@ class Nav extends React.Component {
     this.state = {
       cart: 0,
     };
-  }
+  } 
 
   render() {
     return (
