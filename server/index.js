@@ -22,7 +22,7 @@ app.get('/carts', (req, res) => {
   db.mySqlConnection.query('SELECT * FROM cart', (error, results) => {
     if (error) {
       throw error;
-    } 
+    }
     res.send(results);
   });
 });
