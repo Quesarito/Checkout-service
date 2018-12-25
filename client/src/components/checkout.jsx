@@ -16,9 +16,9 @@ class Checkout extends React.Component {
       this.setState({cart: response.data });
     });
 
-    axios.post('/carts', {userid: 1, itemid: 10}).then((response) => {
-      console.log('bingo')
-    })
+    axios.post('/carts', { userid: 1, itemid: 10 }).then((response) => {
+      console.log('bingo');
+    });
 }
 
   render() {
