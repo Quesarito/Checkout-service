@@ -17,8 +17,18 @@ class Checkout extends React.Component {
       this.setState({cart: response.data });
     });
 
-    axios.post('/carts', { userid: 1, itemid: 10 }).then((response) => {
-      console.log('bingo');
+    axios.post('/carts', { userid: 1, itemid: 10 }).then((error, response) => {
+      if (error) {
+        throw error;
+      }
+      console.log('carts', response);
+    });
+    // list post test
+    axios.post('/lists', { list_name: 'christmas', item_id: 1, user_id: 1 }).then((error, response) => {
+      if (error) {
+        throw error;
+      }
+      console.log('lists', response);
     });
   }
 
