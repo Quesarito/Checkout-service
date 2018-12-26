@@ -32,9 +32,9 @@ app.post('/carts', (req, res) => {
     if (err) {
       throw err;
     }
+    console.log('we did it');
+    res.send(200);
   });
-  console.log('we did it');
-  res.send(200);
 });
 // gets user data
 app.get('/users', (req, res) => {
