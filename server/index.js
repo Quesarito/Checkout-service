@@ -38,7 +38,7 @@ app.post('/carts', (req, res) => {
 });
 // gets user data
 app.get('/users', (req, res) => {
-  db.mySqlConnection.query('SELECT * FROM users', (error, results) => {
+  db.mySqlConnection.query('SELECT * FROM users WHERE id=1', (error, results) => {
     if (error) {
       throw error;
     }

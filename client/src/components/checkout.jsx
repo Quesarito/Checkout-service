@@ -34,8 +34,17 @@ class Checkout extends React.Component {
 
   render() {
     return (
+      <div>
+      <table class="main" width="1200" height="800">
+          <tr><td>
+              main page el
+              </td></tr></table>
 
-      <div> f in chat </div>
+      <table class="checkout" width= "400" height = "600">
+          <tr><td>
+              checking out
+              </td></tr></table>
+      </div>
     );
   }
 }

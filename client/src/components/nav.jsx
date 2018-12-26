@@ -12,14 +12,14 @@ class Nav extends React.Component {
 
   componentDidMount() {
     axios.get('/users').then((response) => {
-      this.setState({data: response.data });
+      this.setState({ data: response.data });
     });
   }
 
   render() {
     return (
       <header>
-        <h1 className="nav">Amazon?</h1>
+        <h1 className="nav">Amazon? DELIVER TO {this.state.data.name} {this.state.data.city} {this.state.data.zipcode}</h1>
         <h1>
           <button className="openbtn"> ☰ </button>
         </h1>
